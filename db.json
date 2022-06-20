@@ -1,0 +1,104 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "gender": "Male",
+            "firstName": "Phillip",
+            "lastName": "Greensides",
+            "dob": "2021/09/21",
+            "email": "pgreensides0@printfriendly.com",
+            "phone": "601-899-0786",
+            "avatar": "https://robohash.org/laboreitaquedignissimos.png?size=50x50&set=set1"
+        },
+        {
+            "id": 2,
+            "gender": "Male",
+            "firstName": "Sandro",
+            "lastName": "Baake",
+            "dob": "2022/03/07",
+            "email": "sbaake1@usda.gov",
+            "phone": "258-394-3343",
+            "avatar": "https://robohash.org/voluptasautemvel.png?size=50x50&set=set1"
+        },
+        {
+            "id": 3,
+            "gender": "Female",
+            "firstName": "Melody",
+            "lastName": "Cusick",
+            "dob": "2021/11/27",
+            "email": "mcusick2@earthlink.net",
+            "phone": "951-102-9766",
+            "avatar": "https://robohash.org/evenietplaceateos.png?size=50x50&set=set1"
+        },
+        {
+            "id": 4,
+            "gender": "Male",
+            "firstName": "Russell",
+            "lastName": "Schafer",
+            "dob": "2021/12/15",
+            "email": "rschafer3@1688.com",
+            "phone": "539-606-3211",
+            "avatar": "https://robohash.org/voluptaterationemolestias.png?size=50x50&set=set1"
+        },
+        {
+            "id": 5,
+            "gender": "Male",
+            "firstName": "Emmit",
+            "lastName": "Korbmaker",
+            "dob": "2022/03/30",
+            "email": "ekorbmaker4@cnet.com",
+            "phone": "242-808-9187",
+            "avatar": "https://robohash.org/earumcorporisveniam.png?size=50x50&set=set1"
+        },
+        {
+            "id": 6,
+            "gender": "Female",
+            "firstName": "Nari",
+            "lastName": "Florio",
+            "dob": "2021/06/25",
+            "email": "nflorio5@google.de",
+            "phone": "360-251-4156",
+            "avatar": "https://robohash.org/architectolaudantiumvoluptas.png?size=50x50&set=set1"
+        },
+        {
+            "id": 7,
+            "gender": "Female",
+            "firstName": "Aileen",
+            "lastName": "Redington",
+            "dob": "2021/10/10",
+            "email": "aredington6@umich.edu",
+            "phone": "728-159-0905",
+            "avatar": "https://robohash.org/siteteos.png?size=50x50&set=set1"
+        },
+        {
+            "id": 8,
+            "gender": "Male",
+            "firstName": "Monte",
+            "lastName": "Luby",
+            "dob": "2021/07/19",
+            "email": "mluby7@jigsy.com",
+            "phone": "404-448-0933",
+            "avatar": "https://robohash.org/explicabosintsaepe.png?size=50x50&set=set1"
+        },
+        {
+            "id": 9,
+            "gender": "Male",
+            "firstName": "Garrott",
+            "lastName": "Lemar",
+            "dob": "2021/08/05",
+            "email": "glemar8@yelp.com",
+            "phone": "490-576-6691",
+            "avatar": "https://robohash.org/sintipsadolor.png?size=50x50&set=set1"
+        },
+        {
+            "id": 10,
+            "gender": "Male",
+            "firstName": "Martyn",
+            "lastName": "Kollach",
+            "dob": "2021/07/16",
+            "email": "mkollach9@google.it",
+            "phone": "498-170-2116",
+            "avatar": "https://robohash.org/dolortotammaxime.png?size=50x50&set=set1"
+        }
+    ]
+}
