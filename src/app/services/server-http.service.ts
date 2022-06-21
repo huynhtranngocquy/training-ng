@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { Student } from '../models/Student';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,26 @@ export class ServerHttpService {
   public getStudents(): Observable<any> {
     const URI = `${this.URL}/students`;
     return this.httpClient.get<any>(URI, this.httpOptions).pipe(catchError(this.handleError));
+  }
 
+  public getStudent(studentId: number): Observable<any> {
+    const URL = `${this.URL}/students/${studentId}`;
+    return this.httpClient.get<any>(URL, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public updateStudent(studentId: number, data: Student): Observable<any> {
+    const URL = `${this.URL}/students/${studentId}`;
+    return this.httpClient.put<any>(URL, data, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public addStudent(data: Student): Observable<any> {
+    const URI = `${this.URL}/students`;
+    return this.httpClient.post<any>(URI, data, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public deleteStudent(studentId: string): Observable<any> {
+    const URL = `${this.URL}/students/` + studentId;
+    return this.httpClient.delete<any>(URL, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

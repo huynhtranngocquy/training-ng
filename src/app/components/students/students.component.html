@@ -1,8 +1,5 @@
-<p-dialog header="Create a student" [(visible)]="display" [style]="{width: '50vw'}">
-    Content
-</p-dialog>
 
-<button type="button" (click)="showDialog()" pButton type="button" label="NEW" class="p-button-rounded p-button-info"
+<button type="button" (click)="addStudent()" pButton type="button" label="NEW" class="p-button-rounded p-button-info"
     icon="pi pi-user-plus"></button>
 <br />
 <br />
@@ -35,11 +32,11 @@
                 <p-image src="{{student?.avatar}}" alt="Image"></p-image>
             </td>
             <td>
-                <button pButton type="button" class="p-button-rounded p-button-success"
+                <button (click)="deleteStudent(student.id)" pButton type="button" class="p-button-rounded p-button-danger"
                     icon="pi pi-user-minus"></button>
             </td>
             <td>
-                <button pButton type="button" class="p-button-rounded p-button-danger" icon="pi pi-user-edit"></button>
+                <button (click)="editStudent(student.id)" pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-user-edit"></button>
             </td>
 
 
