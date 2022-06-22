@@ -49,6 +49,16 @@
       "email": "dwittman4@ucla.edu",
       "phone": "571-538-6098",
       "avatar": "https://robohash.org/erroradipiscilibero.png?size=50x50&set=set1"
+    },
+    {
+      "gender": "male",
+      "firstName": "Huỳnh",
+      "lastName": "Quý",
+      "dob": "2022-06-02",
+      "email": "huynhtranngocquy@gmail.com",
+      "phone": "0764070371",
+      "avatar": "C:\\fakepath\\254065250_1192975287893547_3265496831402198485_n.jpg",
+      "id": 6
     }
   ]
 }

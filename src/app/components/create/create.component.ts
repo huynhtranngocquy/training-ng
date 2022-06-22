@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Student } from 'src/app/models/Student';
 import { CommonService } from 'src/app/services/common.service';
 import { ServerHttpService } from 'src/app/services/server-http.service';
 
@@ -12,20 +11,67 @@ import { ServerHttpService } from 'src/app/services/server-http.service';
 })
 export class CreateComponent implements OnInit {
   public id: any = 0;
-  public studentForm = new FormGroup({
-    gender: new FormControl(null),
-    firstName: new FormControl(null),
-    lastName: new FormControl(null),
-    dob: new FormControl(null),
-    email: new FormControl(null),
-    phone: new FormControl(null),
-    avatar: new FormControl(null),
-  })
+  studentForm: FormGroup;
 
-  constructor(private route: ActivatedRoute, private common: CommonService, private serverHttp: ServerHttpService, private router: Router) { }
+  // public studentForm = new FormGroup({
+  //   gender: new FormControl('', [
+  //     Validators.required
+  //   ]),
+  //   firstName: new FormControl('', [
+  //     Validators.required,
+  //     Validators.minLength(3),
+  //     Validators.maxLength(10)
+  //   ]),
+  //   lastName: new FormControl('',
+  //     [
+  //       Validators.required,
+  //       Validators.minLength(3),
+  //       Validators.maxLength(10)
+  //     ]),
+  //   dob: new FormControl(''),
+  //   email: new FormControl(''),
+  //   phone: new FormControl(''),
+  //   avatar: new FormControl(''),
+  // })
+
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private common: CommonService, private serverHttp: ServerHttpService, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.studentForm.valid);
+
+    this.studentForm = this.fb.group({
+      gender: new FormControl('', [
+        Validators.required
+      ]),
+      firstName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10)
+      ]),
+      lastName: new FormControl('',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(10)
+        ]),
+      dob: new FormControl('', [
+        Validators.required
+      ]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+      ]),
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern("^[0-9]*$"),
+        Validators.minLength(10), Validators.maxLength(10)
+      ]),
+      avatar: new FormControl('',[
+        Validators.required
+      ]),
+    })
+
+
+
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (+this.id > 0) {

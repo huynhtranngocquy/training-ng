@@ -2,41 +2,76 @@
     <form [formGroup]="studentForm" class="col-12 md:col-4">
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" formControlName="gender" pInputText placeholder="Gender">
+            <select formControlName="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+            </select>
+            <div class="textError" *ngIf="studentForm.get('gender').hasError('required') &&
+    studentForm.get('gender').touched">Gender is required</div>
+            <!-- <input type="text" formControlName="gender" pInputText placeholder="Gender"> -->
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input type="text" formControlName="firstName" pInputText placeholder="First Name">
+            <div class="textError" *ngIf="studentForm.get('firstName').hasError('required') &&
+    studentForm.get('firstName').touched">First Name is required</div>
+            <div class="textError" *ngIf="studentForm.get('firstName').hasError('minlength') &&
+    studentForm.get('firstName').touched">First Name should be minimum of 3 characters</div>
+            <div class="textError" *ngIf="studentForm.get('firstName').hasError('maxlength') &&
+    studentForm.get('firstName').touched">First Name should maximum have 10 characters</div>
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input type="text" formControlName="lastName" pInputText placeholder="Last Name">
+            <div class="textError" *ngIf="studentForm.get('lastName').hasError('required') &&
+    studentForm.get('lastName').touched">Last Name is required</div>
+            <div class="textError" *ngIf="studentForm.get('lastName').hasError('minlength') &&
+    studentForm.get('lastName').touched">Last Name should be minimum of 3 characters</div>
+            <div class="textError" *ngIf="studentForm.get('lastName').hasError('maxlength') &&
+    studentForm.get('lastName').touched">Last Name should maximum have 10 characters</div>
+
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" formControlName="dob" pInputText placeholder="Date of birth">
+            <input type="date" formControlName="dob" pInputText placeholder="Date of birth">
+            <div class="textError" *ngIf="studentForm.get('dob').hasError('required') &&
+    studentForm.get('dob').touched">Date of birth is required</div>
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" formControlName="email" pInputText placeholder="Email">
+            <input type="email" formControlName="email" pInputText placeholder="Email">
+            <div class="textError" *ngIf="studentForm.get('email').hasError('required') &&
+    studentForm.get('email').touched">Email is required</div>
+            <div class="textError" *ngIf="studentForm.get('email').hasError('pattern') &&
+    studentForm.get('email').touched">Email is invalid</div>
+
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
             <input type="text" formControlName="phone" pInputText placeholder="Phone number">
+            <div class="textError" *ngIf="studentForm.get('phone').hasError('required') &&
+    studentForm.get('phone').touched">Phone Number is required</div>
+            <div class="textError" *ngIf="studentForm.get('phone').hasError('pattern') &&
+    studentForm.get('phone').touched">Phone Number is invalid</div>
+            <div class="textError" *ngIf="studentForm.get('phone').hasError('minlength') &&
+    studentForm.get('phone').touched">Phone Number should be 10 numbers</div>
         </div>
         <br />
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" formControlName="avatar" pInputText placeholder="Avatar">
+            <input type="file" formControlName="avatar" pInputText placeholder="Avatar">
+            <div class="textError" *ngIf="studentForm.get('avatar').hasError('required') &&
+    studentForm.get('avatar').touched">Avatar is required</div>
         </div>
         <br />
         <div class="p-inputgroup">
-            <button (click)="saveAndGoToList()" type="submit" pButton class="btn btn-success">save
+            <button (click)="saveAndGoToList()" type="submit" pButton class="btn btn-success"
+                [disabled]="!studentForm.valid">save
                 and go to list</button>
         </div>
         <br />
