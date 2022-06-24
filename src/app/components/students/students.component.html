@@ -1,45 +1,40 @@
-
 <button type="button" (click)="addStudent()" pButton type="button" label="NEW" class="p-button-rounded p-button-info"
     icon="pi pi-user-plus"></button>
-<br />
-<br />
-<br />
-<p-table [value]="students">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>ID</th>
-            <th>Gender</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Date of Birth</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Avatar</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-student>
-        <tr>
-            <td>{{student.id}}</td>
-            <td>{{student.gender}}</td>
-            <td>{{student.firstName}}</td>
-            <td>{{student.lastName}}</td>
-            <td>{{student?.dob}}</td>
-            <td>{{student?.email}}</td>
-            <td>{{student?.phone}}</td>
-            <td>
-                <p-image src="{{student?.avatar}}" alt="Image"></p-image>
-            </td>
-            <td>
-                <button (click)="deleteStudent(student.id)" pButton type="button" class="p-button-rounded p-button-danger"
-                    icon="pi pi-user-minus"></button>
-            </td>
-            <td>
-                <button (click)="editStudent(student.id)" pButton type="button" class="p-button-rounded p-button-success" icon="pi pi-user-edit"></button>
-            </td>
-
-
-        </tr>
-    </ng-template>
-</p-table>
+<hr />
+<input type="text" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="enter name to search" />
+<table>
+    <tr>
+        <th (click)="Sort('id')">ID &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('gender')">Gender &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('firstName')">First Name &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('lastName')">Last Name &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('dob')">Date of Birth &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('email')">Email &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th (click)="Sort('phone')">Phone &nbsp;<i class="pi pi-sort-alt"></i></th>
+        <th>Avatar</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let student of students | orderBy: key: reverse | paginate: {itemsPerPage: 5, currentPage: p}">
+        <td>{{student.id}}</td>
+        <td>{{student.gender}}</td>
+        <td>{{student.firstName}}</td>
+        <td>{{student.lastName}}</td>
+        <td>{{student?.dob}}</td>
+        <td>{{student?.email}}</td>
+        <td>{{student?.phone}}</td>
+        <td>
+            <p-image src="{{student?.avatar}}" alt="Image"></p-image>
+        </td>
+        <td>
+            <button (click)="deleteStudent(student.id)" pButton type="button" class="p-button-rounded p-button-danger"
+                icon="pi pi-user-minus"></button>
+        </td>
+        <td>
+            <button (click)="editStudent(student.id)" pButton type="button" class="p-button-rounded p-button-success"
+                icon="pi pi-user-edit"></button>
+        </td>
+    </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>
+<hr />

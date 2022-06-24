@@ -65,13 +65,10 @@ export class CreateComponent implements OnInit {
         Validators.pattern("^[0-9]*$"),
         Validators.minLength(10), Validators.maxLength(10)
       ]),
-      avatar: new FormControl('',[
+      avatar: new FormControl('', [
         Validators.required
       ]),
     })
-
-
-
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (+this.id > 0) {
@@ -81,15 +78,14 @@ export class CreateComponent implements OnInit {
 
   private loadData(id: number) {
     this.serverHttp.getStudent(id).subscribe(data => {
-      console.log(data);
       for (const controlName in this.studentForm.controls) {
         if (controlName) {
           this.studentForm.controls[controlName as keyof typeof this.studentForm.controls].setValue(data[controlName]);
         }
       }
     })
-
   }
+
   public createNewData() {
     let newStudent: any = {};
     for (const controlName in this.studentForm.controls) {
@@ -99,6 +95,7 @@ export class CreateComponent implements OnInit {
     }
     return newStudent;
   }
+
   public saveAndGoToList() {
     if (+this.id > 0) {
       this.serverHttp.updateStudent(this.id, this.createNewData()).subscribe(data => {
@@ -116,11 +113,13 @@ export class CreateComponent implements OnInit {
   public save() {
     if (+this.id > 0) {
       this.serverHttp.updateStudent(this.id, this.createNewData()).subscribe(data => {
+        console.log(data);
         this.studentForm.reset();
       })
 
     } else {
       this.serverHttp.addStudent(this.createNewData()).subscribe(data => {
+        console.log(data);
         this.common.incrementStudent();
         this.studentForm.reset();
       })

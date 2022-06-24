@@ -12,6 +12,8 @@ import { ServerHttpService } from 'src/app/services/server-http.service';
 export class StudentsComponent implements OnInit {
 
   students: Student[] = [];
+  name: any;
+  p: number = 1;
 
   constructor(private common: CommonService, private serverHttp: ServerHttpService, private router: Router) { }
 
@@ -23,6 +25,13 @@ export class StudentsComponent implements OnInit {
       this.students = data
       this.common.setTotalStudents(data.length);
     })
+  }
+
+  key: string = 'id';
+  reverse: boolean = false;
+  Sort(key: string) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
   public addStudent() {
@@ -37,5 +46,15 @@ export class StudentsComponent implements OnInit {
 
   public editStudent(studentId: string) {
     this.router.navigate(['create', studentId])
+  }
+  
+  Search() {
+    if (this.name === "") {
+      this.ngOnInit()
+    } else {
+      this.students = this.students.filter((std: any) => {
+        return std.firstName.toLocaleLowerCase().match(this.name.toLocaleLowerCase())
+      })
+    }
   }
 }

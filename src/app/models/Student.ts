@@ -1,6 +1,6 @@
 export interface Student {
     id: string;
-    gender: boolean;
+    gender: string;
     firstName: string;
     lastName: string;
     dob?: Date;

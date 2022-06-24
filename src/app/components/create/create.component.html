@@ -1,3 +1,7 @@
+
+<a  type="button" [routerLink]="['/']" routerLinkActive="router-link-active">Go Homepage</a>
+<br />
+<hr>
 <div class="grid p-fluid">
     <form [formGroup]="studentForm" class="col-12 md:col-4">
         <div class="p-inputgroup">
@@ -71,13 +75,13 @@
         <br />
         <div class="p-inputgroup">
             <button (click)="saveAndGoToList()" type="submit" pButton class="btn btn-success"
-                [disabled]="!studentForm.valid">save
-                and go to list</button>
+                [disabled]="!studentForm.valid">Save And Go To List</button>
         </div>
         <br />
         <div class="p-inputgroup">
-            <button (click)="save()" type="submit" pButton class="btn btn-success">save&nbsp;<span *ngIf="id === null">
-                    and create a new one again
+            <button (click)="save()" type="submit" pButton class="btn btn-success"
+                [disabled]="!studentForm.valid">Save&nbsp;<span *ngIf="id === null">
+                    And Create New
                 </span>
             </button>
         </div>
